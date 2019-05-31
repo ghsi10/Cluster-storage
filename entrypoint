@@ -1,0 +1,1 @@
+java -Dcluster.id=$id -Dcluster.nodes=$cluster -jar /app.
