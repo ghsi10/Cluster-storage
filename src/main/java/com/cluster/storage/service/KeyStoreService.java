@@ -65,9 +65,8 @@ public class KeyStoreService {
     /**
      * @param key String key to retrieve from the remote key store.
      * @return The value of the given key.
-     * @throws KeyNotFoundException if key was not found.
      */
-    String getRemoteKey(String key, int remoteNodeId) throws KeyNotFoundException {
+    String getRemoteKey(String key, int remoteNodeId) {
         // build new client for every request to enable concurrency.
         return webClientBuilder.build()
                 .get()
