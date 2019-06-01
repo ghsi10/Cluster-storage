@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "cluster.nodes",
+      "type": "java.lang.String",
+      "description": "List of nodes in the cluster."
+    },
+    {
+      "name": "cluster.id",
+      "type": "java.lang.Integer",
+      "description": "The node id in the cluster."
+    }
+  ]
+}
