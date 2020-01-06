@@ -5,7 +5,6 @@ public class KeyNotFoundException extends Exception {
     private final String keyName;
 
     public KeyNotFoundException(String keyName) {
-        super();
         this.keyName = keyName;
     }
 

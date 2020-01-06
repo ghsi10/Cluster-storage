@@ -26,12 +26,6 @@ public class KeyStoreController {
         return keyStoreService.getKey(key);
     }
 
-    // does not check hash shard.
-    @GetMapping("/local/{key}")
-    public String getLocalKey(@PathVariable String key) throws KeyNotFoundException {
-        return keyStoreService.getLocalKey(key);
-    }
-
     @ExceptionHandler(KeyNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String keyNotFoundExceptionHandler(KeyNotFoundException e) {

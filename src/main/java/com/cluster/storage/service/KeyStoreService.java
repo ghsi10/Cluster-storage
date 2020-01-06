@@ -66,7 +66,7 @@ public class KeyStoreService {
      * @param key String key to retrieve from the remote key store.
      * @return The value of the given key.
      */
-    String getRemoteKey(String key, int remoteNodeId) {
+    private String getRemoteKey(String key, int remoteNodeId) {
         // build new client for every request to enable concurrency.
         return webClientBuilder.build()
                 .get()
@@ -80,7 +80,7 @@ public class KeyStoreService {
     /**
      * @param key String key to store in the remote key store.
      */
-    void storeRemoteKey(String key, String value, int remoteNodeId) {
+    private void storeRemoteKey(String key, String value, int remoteNodeId) {
         // build new client for every request to enable concurrency.
         webClientBuilder.build()
                 .post()
@@ -95,7 +95,7 @@ public class KeyStoreService {
      * @param key the key to calculate its shard id.
      * @return the id of the node in the cluster that the supplied key belongs to.
      */
-    int calcNodeId(String key) {
-        return (int) ((key.hashCode() + (long) Integer.MAX_VALUE) / ((Integer.MAX_VALUE) * 2L / nodes.length));
+    private int calcNodeId(String key) {
+        return key.hashCode() % nodes.length;
     }
 }

@@ -58,16 +58,6 @@ public class KeyStoreControllerTest {
     }
 
     @Test
-    public void testGetLocalKey() throws Exception {
-        final String key = "bloop";
-        final String value = "{\"shooby\": \"poolb\"}";
-        doReturn(value).when(keyStoreService).getLocalKey(key);
-        mockMvc.perform(get("/api/local/{key}", key))
-                .andExpect(status().isOk())
-                .andExpect(content().string(value));
-    }
-
-    @Test
     public void testGetNonExistentLocalKey() throws Exception {
         final String key = "random";
         doThrow(new KeyNotFoundException(key)).when(keyStoreService).getLocalKey(key);
